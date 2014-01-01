@@ -1,2 +1,2 @@
-javac Linked.java LinkedSegment.java
-java LinkedSegment
+javac Linked.java Addition.java
+java Addition
