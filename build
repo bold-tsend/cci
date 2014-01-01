@@ -1,2 +1,2 @@
-javac Linked.java DelDuplicates.java
-java DelDuplicates
+javac Linked.java KLast.java
+java KLast

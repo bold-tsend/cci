@@ -11,12 +11,25 @@ public class Linked {
         System.out.println("Dump list:"); 
 
         Linked cur = this; 
+        int line = 0; 
         while(cur != null) {
-            System.out.println(cur.data);
+            System.out.println(line + "/" + (length() - line) + ": " + cur.data);
             cur = cur.next();
+            line++;
         }
 
         System.out.println("---"); 
+    }
+
+    private int length() {
+        Linked pointer = this; 
+        int length = 0; 
+        while(pointer.next != null) {
+            length++; 
+            pointer = pointer.next;
+        }
+
+        return length; 
     }
 
     public boolean equals(Object test) {
