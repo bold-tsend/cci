@@ -1,2 +1,2 @@
-javac Linked.java DelArbitrary.java
-java DelArbitrary
+javac Linked.java LinkedSegment.java
+java LinkedSegment
