@@ -46,7 +46,7 @@ public class Linked {
 
         Linked newLinked = new Linked(data); 
         scan.next = newLinked; 
-        return scan; 
+        return newLinked; 
     }
 
     Linked next() {

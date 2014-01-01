@@ -1,2 +1,2 @@
-javac Linked.java KLast.java
-java KLast
+javac Linked.java DelArbitrary.java
+java DelArbitrary
