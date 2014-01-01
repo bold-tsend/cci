@@ -1,2 +1,2 @@
-javac Linked.java LinkedCircle.java
-java LinkedCircle
+javac Linked.java Palindrom.java
+java Palindrom
