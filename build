@@ -1,0 +1,2 @@
+javac Linked.java DelDuplicates.java
+java DelDuplicates
