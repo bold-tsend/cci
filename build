@@ -1,2 +1,2 @@
-javac Linked.java Addition.java
-java Addition
+javac Linked.java AdditionFwd.java
+java AdditionFwd
