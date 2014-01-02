@@ -40,7 +40,7 @@ public class LinkedCircleEfficient {
      * elements moves fast pointer to cycle start
      * We know that slow pointer moves k elements from list start to cycle start
      * So, slow pointer is set to list start and fast pointer is left as it is
-     * both pointers are moved until they collade
+     * both pointers are moved until they collide
      * Fast pointer has moved F steps equal k steps and slow pointer has moved k steps
      * as well
      * Hence, the collission happens at the cycle start. 
