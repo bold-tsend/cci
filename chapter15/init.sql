@@ -2,79 +2,79 @@
 ############################
 drop table if exists `complexes`; 
 CREATE TABLE `complexes` (
-  `ComplexID` int(11) NOT NULL AUTO_INCREMENT,
+  `ComplexID` int(11) NOT NULL,
   `ComplexName` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ComplexID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-insert into complexes (ComplexName) values ('Complex 1');
+insert into complexes values (1, 'Complex 1');
 
 drop table if exists `buildings`; 
 CREATE TABLE `buildings` (
-  `BuildingID` int(11) NOT NULL AUTO_INCREMENT,
+  `BuildingID` int(11) NOT NULL,
   `ComplexID` int(11) DEFAULT NULL,
   `BuildingName` varchar(45) DEFAULT NULL,
   `Address` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`BuildingID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-insert into buildings (ComplexID, BuildingName, Address) values (1, 'Building 1', 'Moon');
-insert into buildings (ComplexID, BuildingName, Address) values (1, 'Building 2', 'Mars');
+insert into buildings values (1, 1, 'Building 1', 'Moon');
+insert into buildings values (2, 1, 'Building 2', 'Mars');
 
 drop table if exists `apartments`;
 CREATE TABLE `apartments` (
-  `AptID` int(11) NOT NULL AUTO_INCREMENT,
+  `AptID` int(11) NOT NULL,
   `UnitNumber` varchar(45) DEFAULT NULL,
   `BuildingID` int(11) DEFAULT NULL,
   PRIMARY KEY (`AptID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-insert into apartments (UnitNumber, BuildingID) values (1, 1);
-insert into apartments (UnitNumber, BuildingID) values (2, 1);
-insert into apartments (UnitNumber, BuildingID) values (3, 1);
-insert into apartments (UnitNumber, BuildingID) values (4, 1);
-insert into apartments (UnitNumber, BuildingID) values (5, 1);
-insert into apartments (UnitNumber, BuildingID) values (1, 2);
-insert into apartments (UnitNumber, BuildingID) values (2, 2);
-insert into apartments (UnitNumber, BuildingID) values (3, 2);
-insert into apartments (UnitNumber, BuildingID) values (4, 2);
-insert into apartments (UnitNumber, BuildingID) values (5, 2);
+insert into apartments values (1, 1, 1);
+insert into apartments values (2, 2, 1);
+insert into apartments values (3, 3, 1);
+insert into apartments values (4, 4, 1);
+insert into apartments values (5, 5, 1);
+insert into apartments values (6, 1, 2);
+insert into apartments values (7, 2, 2);
+insert into apartments values (8, 3, 2);
+insert into apartments values (9, 4, 2);
+insert into apartments values (10, 5, 2);
 
 drop table if exists `tenants`;
 CREATE TABLE `tenants` (
-  `TenantID` int(11) NOT NULL AUTO_INCREMENT,
+  `TenantID` int(11) NOT NULL,
   `TenantName` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`TenantID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-insert into tenants (TenantName) values ('Bob');
-insert into tenants (TenantName) values ('Alice');
-insert into tenants (TenantName) values ('Kyle');
+insert into tenants values (1, 'Bob');
+insert into tenants values (2, 'Alice');
+insert into tenants values (3, 'Kyle');
 
 drop table if exists `apttenants`;
 CREATE TABLE `apttenants` (
   `TenantID` int(11) DEFAULT NULL,
   `AptID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-insert into apttenants (TenantID, AptID) values (1, 1);
-insert into apttenants (TenantID, AptID) values (1, 2);
-insert into apttenants (TenantID, AptID) values (1, 3);
-insert into apttenants (TenantID, AptID) values (2, 4);
-insert into apttenants (TenantID, AptID) values (2, 5);
-insert into apttenants (TenantID, AptID) values (2, 6);
-insert into apttenants (TenantID, AptID) values (2, 7);
-insert into apttenants (TenantID, AptID) values (3, 8);
+insert into apttenants values (1, 1);
+insert into apttenants values (1, 2);
+insert into apttenants values (1, 3);
+insert into apttenants values (2, 4);
+insert into apttenants values (2, 5);
+insert into apttenants values (2, 6);
+insert into apttenants values (2, 7);
+insert into apttenants values (3, 8);
 
 drop table if exists `requests`; 
 CREATE TABLE `requests` (
-  `RequestID` int(11) NOT NULL AUTO_INCREMENT,
+  `RequestID` int(11) NOT NULL,
   `Status` varchar(45) DEFAULT NULL,
   `AptID` int(11) DEFAULT NULL,
   `Description` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`RequestID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-insert into requests (Status, AptID, Description) values ('open', 1, '');
-insert into requests (Status, AptID, Description) values ('closed', 2, '');
-insert into requests (Status, AptID, Description) values ('open', 4, '');
-insert into requests (Status, AptID, Description) values ('open', 6, '');
-insert into requests (Status, AptID, Description) values ('closed', 1, '');
-insert into requests (Status, AptID, Description) values ('open', 9, '');
+insert into requests values (1, 'open', 1, '');
+insert into requests values (2, 'closed', 2, '');
+insert into requests values (3, 'open', 4, '');
+insert into requests values (4, 'open', 6, '');
+insert into requests values (5, 'closed', 1, '');
+insert into requests values (6, 'open', 9, '');
 
 # Tables for student grades
 ############################
