@@ -15,4 +15,23 @@ update Requests left join Apartments on Requests.AptID = Apartments.AptID join B
 Buildings.BuildingID = Apartments.BuildingID set Requests.status = 'closed' where Buildings.BuildingName = 'Building 1'
 and Requests.status = 'open';
 
+# 15.4 (Grades are 1 best to 5 worst)
 
+select SName, GPA from (
+	select Students.StudentName as SName, AVG(CourseEnrollment.Grade) as GPA from Students join CourseEnrollment 
+	on Students.StudentID = CourseEnrollment.StudentID group by students.StudentID
+) as gpas
+where GPA <= (
+	# Hack to get 10% of students only 
+	select max(gpa) from (
+		select *, @counter := @counter + 1 counter from 
+		(select @counter := 0) initvar, 
+			(
+				select AVG(CourseEnrollment.Grade) as gpa
+				from students join CourseEnrollment on 
+				students.StudentID = CourseEnrollment.StudentID 
+				group by students.StudentID order by gpa asc
+			) as tmp 
+		) as tmp2 
+	where counter <= GREATEST(0.1 * @counter, 1)
+) order by GPA asc;
