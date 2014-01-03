@@ -22,7 +22,7 @@ select SName, GPA from (
 	on Students.StudentID = CourseEnrollment.StudentID group by students.StudentID
 ) as gpas
 where GPA <= (
-	# Hack to get 10% of students only 
+	# Hack to get last grade of best 10% of students
 	select max(gpa) from (
 		select *, @counter := @counter + 1 counter from 
 		(select @counter := 0) initvar, 
